@@ -37,7 +37,7 @@ class HomeView extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               children: [
 
-                // here today recipe widget
+              // here today recipe widget
                 Padding(
                   padding: const EdgeInsetsDirectional.only(bottom: 16),
                   child: Text(
@@ -49,11 +49,10 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
-                // here category list view
+               // here category list view
               ],
             ),
-          ),
-      ),
+          ),),
     );
   }
 }
