@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import '../../widgets/custom_widgets/custom_category_list_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -49,6 +50,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                // here category list view
+                const CustomCategoryListView(),
               ],
             ),
           ),),
