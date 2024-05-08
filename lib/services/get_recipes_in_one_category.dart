@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:food_app/models/recipe_model.dart';
+
+import '../models/recipe_model.dart';
 
 class RecipesInOneCategoryService {
   Dio dio = Dio();

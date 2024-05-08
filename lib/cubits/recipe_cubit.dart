@@ -1,11 +1,11 @@
 import 'dart:math';
 
 import 'package:bloc/bloc.dart';
-import 'package:food_app/models/ingredient_model.dart';
-import 'package:food_app/models/recipe_model.dart';
-import 'package:food_app/services/get%20_recipe_by_id.dart';
-import 'package:food_app/services/get_recipes_in_one_category.dart';
+
 import 'package:meta/meta.dart';
+
+import '../models/recipe_model.dart';
+import '../services/get_recipes_in_one_category.dart';
 
 part 'recipe_state.dart';
 
@@ -24,7 +24,7 @@ class RecipeCubit extends Cubit<RecipeState> {
     try {
       listOfRecipes = await recipesInOneCategoryService.getRecipes(
           url:
-          "https://www.themealdb.com/api/json/v1/1/filter.php?c=$categoryName");
+              "https://www.themealdb.com/api/json/v1/1/filter.php?c=$categoryName");
       emit(RecipeSuccess());
     } catch (e) {
       emit(RecipeFailure());
@@ -36,10 +36,10 @@ class RecipeCubit extends Cubit<RecipeState> {
     try {
       recipeModel = await recipeByIdService.getRecipe(
           url:
-          "https://www.themealdb.com/api/json/v1/1/lookup.php?i=$recipeId");
+              "https://www.themealdb.com/api/json/v1/1/lookup.php?i=$recipeId");
       ingredientList = await recipeByIdService.getIngredient(
           url:
-          "https://www.themealdb.com/api/json/v1/1/lookup.php?i=$recipeId");
+              "https://www.themealdb.com/api/json/v1/1/lookup.php?i=$recipeId");
       emit(RecipeSuccess());
     } catch (e) {
       emit(RecipeFailure());
@@ -50,16 +50,15 @@ class RecipeCubit extends Cubit<RecipeState> {
     emit(RecipeLoading());
     try {
       recipeModel = await recipeByIdService.getRecipe(
-          url:
-          "https://www.themealdb.com/api/json/v1/1/random.php");
+          url: "https://www.themealdb.com/api/json/v1/1/random.php");
       ingredientList = await recipeByIdService.getIngredient(
-          url:
-          "https://www.themealdb.com/api/json/v1/1/random.php");
+          url: "https://www.themealdb.com/api/json/v1/1/random.php");
       emit(RecipeSuccess());
     } catch (e) {
       emit(RecipeFailure());
     }
   }
+
   int generateRandomTimeInMin() {
     Random random = Random();
     int min = 15;
@@ -74,6 +73,4 @@ class RecipeCubit extends Cubit<RecipeState> {
     double randomRate = min + random.nextDouble() * (max - min);
     return double.parse(randomRate.toStringAsFixed(1));
   }
-
-
 }

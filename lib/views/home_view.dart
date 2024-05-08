@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:softwareproject/constants.dart';
 
-import '../../constants.dart';
-import '../../widgets/custom_widgets/custom_category_list_view.dart';
+import '../widgets/custom_widgets/custom_category_list_view.dart';
 
 
 class HomeView extends StatelessWidget {
@@ -24,7 +24,7 @@ class HomeView extends StatelessWidget {
                 Text(
                   " APP",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: kPrimaryColor),
+                      fontWeight: FontWeight.bold, color: Constants.kPrimaryColor),
                 ),
               ],
             ),

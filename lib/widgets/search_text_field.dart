@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_app/constants.dart';
-import 'package:food_app/cubits/recipe_cubit/recipe_cubit.dart';
-import 'package:food_app/views/recipe_details_view.dart';
 
 class SearchTextField extends StatelessWidget {
    const SearchTextField({super.key});
@@ -25,7 +21,7 @@ class SearchTextField extends StatelessWidget {
          focusedBorder: OutlineInputBorder(
              borderRadius: BorderRadius.all(Radius.circular(16)),
              borderSide: BorderSide(
-             color: kPrimaryColor
+             color: Colors.red
            )
          ),
             border: OutlineInputBorder(
