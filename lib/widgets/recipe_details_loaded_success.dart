@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../constants.dart';
 import '../cubits/recipe_cubit.dart';
+import 'list_of_ingredients.dart';
 
 
 class RecipeDetailsLoadedSuccess extends StatefulWidget {
@@ -139,7 +140,9 @@ class _RecipeDetailsLoadedSuccessState
               ],
             ),
           ),
+
           const ListOfIngredients(),
+
         ],
       ),
     );
