@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:softwareproject/services/all_categories_services.dart';
+import 'package:softwareproject/services/get_recipe_by_id.dart';
+import 'package:softwareproject/services/get_recipe_in_one_category.dart';
 import 'package:softwareproject/views/home_view.dart';
+
+import 'cubits/category_cubit/category_cubit.dart';
+import 'cubits/recipe_cubit/recipe_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,15 +18,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Software project',
-      theme: ThemeData(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CategoryCubit(AllCategoriesService()),),
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        BlocProvider(create: (context) => RecipeCubit(RecipesInOneCategoryService(),RecipeByIdService()),),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Software project',
+        theme: ThemeData(
+
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: const HomeView()
       ),
-      home: const HomeView()
     );
   }
 }
