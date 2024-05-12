@@ -7,8 +7,10 @@ import 'package:softwareproject/views/home_view.dart';
 
 import 'cubits/category_cubit/category_cubit.dart';
 import 'cubits/recipe_cubit/recipe_cubit.dart';
+import 'my_bloc_observer.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }
 
