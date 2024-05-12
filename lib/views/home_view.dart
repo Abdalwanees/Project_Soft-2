@@ -1,8 +1,9 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+
+import '../widgets/today_recipe.dart';
+
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
@@ -32,12 +33,11 @@ class HomeView extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: ListView(
-            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            physics: const BouncingScrollPhysics(),
+          child: Column(
+
             children: [
 
-              /// add today recipe here
+              const TodayRecipe(),
               Padding(
                 padding: const EdgeInsetsDirectional.only(bottom: 16),
                 child: Text(

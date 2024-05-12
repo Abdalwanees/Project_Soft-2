@@ -1,9 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:softwareproject/widgets/recipe_item.dart';
 
+import '../cubits/category_cubit/category_cubit.dart';
 import '../cubits/recipe_cubit/recipe_cubit.dart';
 import '../models/recipe_model.dart';
+import 'custom_change_recipe_button.dart';
+import 'custom_loading_widget.dart';
 
 
 class TodayRecipe extends StatefulWidget {
@@ -33,9 +37,9 @@ class _TodayRecipeState extends State<TodayRecipe> {
     double heightScreen = MediaQuery.of(context).size.height;
     return SizedBox(
       width: widthScreen,
-      child: BlocBuilder<CategoryCubit, CategoryState>(
+      child: BlocBuilder<RecipeCubit, RecipeState>(
         builder: (context, state) {
-          if (state is CategorySuccess) {
+          if (state is RecipeSuccess) {
             RecipeModel? recipeForToday =
                 BlocProvider.of<RecipeCubit>(context).recipeModel;
             return Column(
@@ -68,10 +72,17 @@ class _TodayRecipeState extends State<TodayRecipe> {
             return SizedBox(
               width: widthScreen,
               height: heightScreen / 5,
+              child: const Center(
+                child: Text("Error"),
+              ),
             );
-          } else {
-            return const CustomLoadingWidget();
-          }
+          } else{
+              return SizedBox(
+                  width: widthScreen,
+                  height: heightScreen/4,
+                  child: const CustomLoadingWidget());
+            }
+
         },
       ),
     );
