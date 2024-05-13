@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
+import '../widgets/custom_category_list_view.dart';
 import '../widgets/today_recipe.dart';
 
 class HomeView extends StatelessWidget {
@@ -33,25 +34,27 @@ class HomeView extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Column(
-
-            children: [
-
-              const TodayRecipe(),
-              Padding(
-                padding: const EdgeInsetsDirectional.only(bottom: 16),
-                child: Text(
-                  "Categories",
-                  style: TextStyle(
-                    fontSize: widthScreen / 15,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF323643),
+          child: SingleChildScrollView(
+            child: Column(
+            
+              children: [
+            
+                const TodayRecipe(),
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(bottom: 16),
+                  child: Text(
+                    "Categories",
+                    style: TextStyle(
+                      fontSize: widthScreen / 15,
+                      fontWeight: FontWeight.w500,
+                      color: const Color(0xFF323643),
+                    ),
                   ),
                 ),
-              ),
-
-              /// add category list view here
-            ],
+            
+               const CustomCategoryListView()
+              ],
+            ),
           ),
         ),
       ),

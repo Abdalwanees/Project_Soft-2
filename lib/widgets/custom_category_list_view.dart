@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_app/cubits/category_cubit/category_cubit.dart';
-import 'package:food_app/widgets/custom_widgets/custom_loading_widget.dart';
-import '../../views/recipes_view.dart';
-import '../category_item.dart';
+
+import '../cubits/category_cubit/category_cubit.dart';
+import 'category_item.dart';
 import 'custom_check_connection_widget.dart';
+import 'custom_loading_widget.dart';
 
 class CustomCategoryListView extends StatefulWidget {
   const CustomCategoryListView({super.key});
@@ -72,14 +72,7 @@ class ListOfCategoriesLoadedSuccess extends StatelessWidget {
           imageUrl: data.imageUrl,
           categoryName: data.title,
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => RecipesView(
-                  categoryTitle: data.title,
-                ),
-              ),
-            );
+            ///navigate to recipe view
           },
         );
       },
