@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen=MediaQuery.of(context).size.width;
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => CategoryCubit(AllCategoriesService()),),
