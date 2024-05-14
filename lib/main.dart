@@ -1,5 +1,7 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:softwareproject/constants.dart';
 import 'package:softwareproject/services/all_categories_services.dart';
 import 'package:softwareproject/services/get_recipe_by_id.dart';
 import 'package:softwareproject/services/get_recipe_in_one_category.dart';
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double widthScreen=MediaQuery.of(context).size.width;
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => CategoryCubit(AllCategoriesService()),),
@@ -34,7 +37,16 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomeView()
+        home:AnimatedSplashScreen(
+          duration: 1000,
+          animationDuration:const Duration(seconds: 1),
+          splash: Constants.appLogo,
+          splashIconSize: widthScreen/1.5,
+          nextScreen: const HomeView(),
+          splashTransition: SplashTransition.fadeTransition,
+          curve: Curves.decelerate,
+          backgroundColor: Colors.black,
+        ),
       ),
     );
   }
