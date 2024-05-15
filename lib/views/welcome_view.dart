@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:softwareproject/constants.dart';
 import 'package:softwareproject/views/home_view.dart';
+import 'package:softwareproject/widgets/custome_welcomeview_button.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
@@ -23,7 +24,7 @@ class WelcomeView extends StatelessWidget {
               left: widthScreen / 5.5,
               child: Text(
                 textAlign: TextAlign.center,
-                "Let’s\nCooking",
+                "Lets\nCooking",
                 style: TextStyle(
                     fontSize: widthScreen / 7,
                     color: Colors.white,
@@ -40,6 +41,22 @@ class WelcomeView extends StatelessWidget {
                     background: Paint()..color = Colors.black.withOpacity(.2),
                   )),
             ),
+            Positioned(
+              bottom: 70,
+              left: widthScreen / 8.5,
+              child: CustomButton(
+                icon: Icons.arrow_forward,
+                title: "Start cooking",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const HomeView(),
+                    ),
+                  );
+                },
+              ),
+            )
           ],
         ),
       ),
