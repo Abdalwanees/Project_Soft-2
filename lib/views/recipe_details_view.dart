@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_app/cubits/recipe_cubit/recipe_cubit.dart';
-import 'package:food_app/widgets/custom_widgets/custom_check_connection_widget.dart';
-import 'package:food_app/widgets/custom_widgets/custom_loading_widget.dart';
+
+import '../cubits/recipe_cubit/recipe_cubit.dart';
+import '../widgets/custom_check_connection_widget.dart';
+import '../widgets/custom_loading_widget.dart';
 import '../widgets/recipe_details_loaded_success.dart';
 
 class RecipeDetailsView extends StatefulWidget {

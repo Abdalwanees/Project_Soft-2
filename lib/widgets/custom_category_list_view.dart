@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:softwareproject/views/recipes_view.dart';
 
 import '../cubits/category_cubit/category_cubit.dart';
 import 'category_item.dart';
@@ -72,7 +73,9 @@ class ListOfCategoriesLoadedSuccess extends StatelessWidget {
           imageUrl: data.imageUrl,
           categoryName: data.title,
           onTap: () {
-            ///navigate to recipe view
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return RecipesView(categoryTitle: data.title);
+            },));
           },
         );
       },

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:ui' as ui;
 import '../constants.dart';
 import '../cubits/recipe_cubit/recipe_cubit.dart';
-import 'custom_widgets/custom_bottom_bar_in_video.dart';
+import 'custom_bottom_bar_in_video.dart';
 import 'list_of_ingredients.dart';
 
 class RecipeDetailsLoadedSuccess extends StatefulWidget {
@@ -108,7 +107,7 @@ class _RecipeDetailsLoadedSuccessState
                   child: Text(
                     _showFullText ? 'Show Less' : 'Show More',
                     style: const TextStyle(
-                      color: kPrimaryColor,
+                      color: Constants.kPrimaryColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
